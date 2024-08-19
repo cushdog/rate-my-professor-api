@@ -10,7 +10,7 @@ DATABASE = 'teacher_data.db'
 
 @app.route('/search', methods=['GET'])
 def search():
-    
+
     query = request.args.get('query')
 
     firstName, lastName = query.split(' ')
@@ -30,7 +30,7 @@ def search():
         prof_dict = {
             "name": prof_of_concern.name,
             "Department": prof_of_concern.department,
-            "School": prof_of_concern.school,
+            "School": prof_of_concern.school.name,
             "Rating": f"{prof_of_concern.rating} / 5.0",
             "Difficulty": f"{prof_of_concern.difficulty} / 5.0",
             "Total Ratings": prof_of_concern.num_ratings,
